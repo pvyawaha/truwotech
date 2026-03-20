@@ -112,7 +112,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} TruwoTech. All rights reserved.
+            &copy; {new Date().getFullYear()} TruwoTech. All rights reserved. Established March 19, 2026.
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-sm text-gray-500 hover:text-gray-300 transition-colors">

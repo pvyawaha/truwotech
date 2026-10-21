@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,24 +14,21 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "TruwoTech - Engineering Tomorrow's Technology",
-    template: "%s | TruwoTech",
+  metadataBase: new URL("https://truwotech.com"),
+  title: "TruwoTech",
+  description: "Great things are being built.",
+  openGraph: {
+    title: "TruwoTech",
+    description: "Great things are being built.",
+    url: "https://truwotech.com",
+    siteName: "TruwoTech",
+    type: "website",
   },
-  description:
-    "TruwoTech delivers cutting-edge solutions in drones, electric vehicles, electric water sports, embedded systems, IoT, and AI at the edge. Engineering the future of connected technology.",
-  keywords: [
-    "drones",
-    "electric vehicles",
-    "EV",
-    "electric water sports",
-    "embedded systems",
-    "IoT",
-    "AI at the edge",
-    "edge computing",
-    "product development",
-    "hardware engineering",
-  ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d0e1a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -43,12 +38,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
-        <Header />
-        <main className="pt-20">{children}</main>
-        <Footer />
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+        {children}
       </body>
     </html>
   );
